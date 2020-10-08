@@ -1,5 +1,6 @@
 import React,{ useEffect, useState }  from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 
 const Post = () => {
@@ -15,9 +16,6 @@ const Post = () => {
             .catch(err =>{
                 console.log(err.message)
             })
-        // return () => {
-        //     cleanup
-        // }
     }, [])
     return (
         <div>
@@ -26,7 +24,7 @@ const Post = () => {
                 post.map(pst => {
                     return (
                         <div key={pst.id}>
-                            <button>Post {pst.id} </button>
+                            <Link to={`posts/${pst.id}`}>Post {pst.id} </Link>
                             <h3>{pst.title}</h3>
                         </div>
                     )
